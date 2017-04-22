@@ -1,39 +1,57 @@
 var myApp = angular.module('Spotify', []);
 
 myApp.controller('Search', function($scope, $http) {
+    $scope.offset = 0;
 	$scope.searchinput = "";
 	$scope.searchdata =[];
 	$scope.$watch('searchinput', function() {
-      fetch();
+      if ($scope.searchinput) {$scope.fetch(); $scope.searchdata =[];}
     });
 
-	function fetch() {
-
-    	if ($scope.searchinput) { $http({
+	$scope.fetch = function () {
+        console.log($scope.offset);
+    	$http({
     		method : "GET",
         	url : "https://api.spotify.com/v1/search",
         	params: {
         		q: $scope.searchinput,
-        		type: "album,track,artist"
+        		type: "album,artist",
+                offset: $scope.offset,
+                limit: 20
         	}}).then(function(response) {
-        		
-        		var items = new Array();
-        		
-	        		//if (response.data.albums)
-	        			items.concat(response.data.albums.items);console.log(items);
-	        		//if (response.data.artists)
-	        			items.concat(response.data.artists.items);
-	        		//if (response.data.tracks)
-	        			items.concat(response.data.tracks.items);
-        		
-            	$scope.searchdata = response.data.albums.items;
-            	console.log($scope.searchdata);
-
+   
+                dataParse(response);
+                
         	});
-        }
+        
+    }
+
+    function dataParse(response){
+        console.log(response.data);
+                if (response.data.artists && response.data.artists.items){
+                    for (i = 0; i < response.data.artists.items.length; i++) { 
+                        var artist = response.data.artists.items[i];
+                        $scope.searchdata.push({
+                            imageurl: (artist.images[0] && artist.images[0].url )?artist.images[0].url:"", 
+                            desc: artist.name
+                        });
+                    }
+                }
+                
+                if (response.data.albums && response.data.albums.items){
+                    for (i = 0; i < response.data.albums.items.length; i++) { 
+                        var album = response.data.albums.items[i];
+                        $scope.searchdata.push({
+                            imageurl: (album.images[0] && album.images[0].url )?album.images[0].url:"", 
+                            desc: album.name
+                        });
+                    }
+                }
     }
     
 });
+
+
 
 myApp.filter('cut', function () {
         return function (value, wordwise, max, tail) {

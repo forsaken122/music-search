@@ -26,7 +26,9 @@
 
   <div class="col-8">
     <img src="Images/hero-img@2x.png"></img>
-    <div class="center-col1"><img src="Images/Page 1@2x.png"></img></div>
+    <div class="center-col1">
+      <img src="Images/Page 1@2x.png"></img>
+    </div>
   </div>
 
   <div class="col-2 right">Powered by Spotify</div>
@@ -43,13 +45,18 @@
 
 <div id="bottom-color" class="row">
   
-  <div class="list-row-padding">
-    <div class="col-3" ng-repeat="item in searchdata">
-      <img src="{{item.images[0].url}}" alt="{{item.name}}"></img>
-      <div class="desc">{{item.name | cut:true:20:' ...'}}</div>
+  <ul class="list-row-padding">
+    <li style="position: relative; max-width: 640px;" class="col-3" ng-repeat="item in searchdata">
+      <img src="{{item.imageurl}}" alt="{{item.desc}}">
+    </img>
+      <div class="desc">{{item.desc | cut:true:20:' ...'}}</div>
+    </li>
+    <div class="center-col3">
+      <button id="show-more-btn" ng-show="searchdata.length" ng-click="offset=offset+20; fetch()" >
+        SHOW ME MORE!
+      </button>
     </div>
-    
-  </div>
+  </ul>
 
   <div ng-show="!searchdata.length" class="center-col3 center-text">
       <img src="Images/Magnify@2x.png"></img>

@@ -9,6 +9,7 @@ body{
     width: 90%;
     color: white;
 }
+ul{list-style-type: none;}
 .row{
    padding: .8em; 
 }
@@ -18,7 +19,7 @@ body{
     padding: .8em;
     display: table;
 }
-/*.list-row-padding>[class*="col-"]{padding:0 .4em}*/
+
 img {
     width: 100%;
     height: auto;
@@ -72,12 +73,31 @@ input.rounded {
     height: 5em;
     -webkit-font-smoothing: antialiased;
 }
+
 .desc{
     background:#FFFFFF;
     color:#383a49 ;
     padding: .8em;
     font-size: 1em;
 }
+
+#show-more-btn {
+    width: 100%;
+    border:.2em solid #ce5f84;
+    border-radius: 2em;
+    cursor: pointer;
+    background-color:#ce5f84;
+    display:inline-block;
+    padding:1em 1.2em;
+    color:#ffffff;
+    font-size: 100%;
+}
+
+#show-more-btn:active {
+    position:relative;
+    top:1px;
+}
+
 @media only screen and (max-width: 768px){
     .list-row-padding>[class*="col-"] {
         width: 100%;
