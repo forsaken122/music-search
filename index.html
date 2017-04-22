@@ -1,0 +1,67 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Spotify API</title>
+  <meta name="description" content="Spotify API">
+  <meta name="author" content="Pierluigi Ballatore">
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+  <script src="spotify.js"></script>
+
+<div id="gradient" class="row red-background">
+
+	<div class="col-2">
+		<img src="Images/gl-logo@2x.png"></img>
+	</div>
+
+  <div class="col-8">
+    <img src="Images/hero-img@2x.png"></img>
+    <div class="center-col1"><img src="Images/Page 1@2x.png"></img></div>
+  </div>
+
+  <div class="col-2 right">Powered by Spotify</div>
+</div>
+
+<div ng-app="Spotify" ng-controller="Search">
+<div id="center-color" class="row">
+  <div class="center-col3">
+    <input type="text" ng-model="searchinput" 
+         ng-model-options="{ debounce: 800 }" name="searchfield" placeholder="Search for artist or album title" class="rounded" /> 
+    <!--<input type="submit" value="Search" />-->
+  </div>
+</div>
+
+<div id="bottom-color" class="row">
+  
+  <div class="list-row-padding">
+    <div class="col-3" ng-repeat="item in searchdata">
+      <img src="{{item.images[0].url}}" alt="{{item.name}}"></img>
+      <div class="desc">{{item.name | cut:true:20:' ...'}}</div>
+    </div>
+    
+  </div>
+
+  <div ng-show="!searchdata.length" class="center-col3 center-text">
+      <img src="Images/Magnify@2x.png"></img>
+      <span id="color-text-search">Your result will appear here</span>
+  </div>
+  <div class="col-12 footer">
+    <p>Resize the browser window to see how the content respond to the resizing.</p>
+  </div>
+
+</div>
+
+</div>
+
+</body>
+</html>
