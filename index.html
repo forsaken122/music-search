@@ -55,16 +55,19 @@
     
   </ul>
 
-  <div class="center-col3">
-      <button id="show-more-btn" ng-show="searchdata.length" ng-click="offset=offset+20; fetch()" >
-        SHOW ME MORE!
-      </button>
-  </div>
-
   <div ng-show="!searchdata.length" class="center-col3 center-text">
       <img src="Images/Magnify@2x.png"></img>
       <span id="color-text-search">Your result will appear here</span>
   </div>
+
+  <div class="col-12">
+    <div class="center-col3">
+        <button id="show-more-btn" ng-show="searchdata.length" ng-click="offset=offset+20; fetch()" >
+          SHOW ME MORE!
+        </button>
+    </div>
+  </div>
+
   <div class="col-12 footer">
     <p>Designed by Geek Label (Pierluigi Ballatore) - Powered by Spotify</p>
   </div>

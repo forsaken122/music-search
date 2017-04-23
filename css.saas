@@ -1,0 +1,213 @@
+*
+  box-sizing: border-box
+  margin: 0
+  padding: 0
+
+body
+  background: #333441
+  font-family: Raleway Webfont
+  margin: auto
+  width: 90%
+  color: white
+
+ul
+  list-style-type: none
+
+.row
+  padding: .8em
+  &::after
+    content: ""
+    clear: both
+    padding: .8em
+    display: table
+
+img
+  width: 100%
+  height: auto
+
+[class*="col-"]
+  float: left
+  padding: 1em
+
+.center-text
+  text-align: center
+
+#gradient
+  background: #b1475e
+  /* For browsers that do not support gradients
+  background: -webkit-linear-gradient(#ce4282, #b1475e)
+  /* For Safari 5.1 to 6.0
+  background: -o-linear-gradient(#ce4282, #b1475e)
+  /* For Opera 11.1 to 12.0
+  background: -moz-linear-gradient(#ce4282, #b1475e)
+  /* For Firefox 3.6 to 15
+  background: linear-gradient(#ce4282, #b1475e)
+  /* Standard syntax
+
+#bottom-color
+  background: #383a49
+
+#center-color
+  background: #333441
+
+#color-text-search
+  color: #474957
+  font-size: 1.2em
+
+input.rounded
+  width: 100%
+  border: 1px solid #b1475e
+  border-radius: 50em
+  background-color: #f8f8f8
+  font-size: 1em
+  resize: none
+  padding: .8em
+
+#searchbutton
+  background: #223445
+  color: #FFFFFF
+  border: .10em solid #223445
+  border-radius: 1em
+  -moz-border-radius: .4em
+  display: inline-block
+  width: 20em
+  height: 5em
+  -webkit-font-smoothing: antialiased
+
+.el-list
+  border: .10em solid #223445
+  border-radius: 1em
+  -moz-border-radius: .4em
+  display: inline-block
+  width: 20em
+  height: 5em
+  -webkit-font-smoothing: antialiased
+
+.desc
+  background: #FFFFFF
+  color: #383a49
+  padding: .8em
+  font-size: 1em
+
+#show-more-btn
+  width: 100%
+  border: .2em solid #ce5f84
+  border-radius: 2em
+  cursor: pointer
+  background-color: #ce5f84
+  display: inline-block
+  padding: 1em 1.2em
+  color: #ffffff
+  font-size: 100%
+  &:active
+    position: relative
+    top: 1px
+
+@media only screen and (max-width: 768px)
+  .list-row-padding > [class*="col-"]
+    width: 100%
+
+@media only screen
+  /* For desktop:
+  .col-1
+    width: 8.33%
+  .col-2
+    width: 16.66%
+  .col-3
+    width: 25%
+  .col-4
+    width: 33.33%
+  .col-5
+    width: 41.66%
+  .col-6
+    width: 50%
+  .col-7
+    width: 58.33%
+  .col-8
+    width: 66.66%
+  .col-9
+    width: 75%
+  .col-10
+    width: 83.33%
+  .col-11
+    width: 91.66%
+  .col-12
+    width: 100%
+  .center-col1
+    width: 8.33%
+    margin: 0px auto
+  .center-col2
+    width: 16.66%
+    margin: 0px auto
+  .center-col3
+    width: 25%
+    margin: 0px auto
+
+.footer
+  text-align: center
+  /*font-size: 12px;
+  padding: 1em
+
+$RalewayWebfontPath: "./Fonts/raleway/"
+$RalewayWebfontName: "Raleway Webfont"
+@font-face
+  font-family: $RalewayWebfontName
+  src: url('./Fonts/raleway/Raleway-Thin.ttf')
+  font-weight: 100
+  font-style: normal
+
+
+@font-face
+  font-family: $RalewayWebfontName
+  src: url('./Fonts/raleway/Raleway-Extralight.ttf')
+  font-weight: 200
+  font-style: normal
+
+
+@font-face
+  font-family: $RalewayWebfontName
+  src: url('./Fonts/raleway/Raleway-Light.ttf')
+  font-weight: 300
+  font-style: normal
+
+
+@font-face
+  font-family: $RalewayWebfontName
+  src: url('./Fonts/raleway/Raleway-Regular.ttf')
+  font-weight: 400
+  font-style: normal
+
+
+@font-face
+  font-family: $RalewayWebfontName
+  src: url('./Fonts/raleway/Raleway-Medium.ttf')
+  font-weight: 500
+  font-style: normal
+
+
+@font-face
+  font-family: $RalewayWebfontName
+  src: url('./Fonts/raleway/Raleway-Semibold.ttf')
+  font-weight: 600
+  font-style: normal
+
+
+@font-face
+  font-family: $RalewayWebfontName
+  src: url('./Fonts/raleway/Raleway-Bold.ttf')
+  font-weight: 700
+  font-style: normal
+
+
+@font-face
+  font-family: $RalewayWebfontName
+  src: url('./Fonts/raleway/Raleway-Extrabold.ttf')
+  font-weight: 800
+  font-style: normal
+
+
+@font-face
+  font-family: $RalewayWebfontName
+  src: url('./Fonts/raleway/Raleway-Heavy.ttf')
+  font-weight: 900
+  font-style: normal
