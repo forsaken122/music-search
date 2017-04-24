@@ -33,7 +33,8 @@ myApp.controller('Search', function($scope, $http) {
                         var artist = response.data.artists.items[i];
                         $scope.searchdata.push({
                             imageurl: (artist.images[0] && artist.images[0].url )?artist.images[0].url:"", 
-                            desc: artist.name
+                            desc: artist.name,
+							type: artist.type
                         });
                     }
                 }
@@ -43,7 +44,8 @@ myApp.controller('Search', function($scope, $http) {
                         var album = response.data.albums.items[i];
                         $scope.searchdata.push({
                             imageurl: (album.images[0] && album.images[0].url )?album.images[0].url:"", 
-                            desc: album.name
+                            desc: album.name,
+							type: album.type
                         });
                     }
                 }
