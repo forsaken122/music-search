@@ -47,13 +47,13 @@
   
   <ul class="list-row-padding">
     
-    <li class="col-3" ng-repeat="item in searchdata">
+    <li ng-show="item.imageurl" class="col-3" ng-repeat="item in searchdata">
 			<div class="image">
-      <img src="{{item.imageurl}}" alt="{{item.desc}}"/>
-	  <div ng-show="item.imageurl" class="icon">
-		<img src="Images/{{item.type}}-icon@2x.png" alt="{{item.type}}"/>  
-	  </div>
-	  </div>
+        <img ng-class="{'blur': item.type == 'track'}" src="{{item.imageurl}}" alt="{{item.desc}}"/>
+    	  <div ng-class="{'icon': item.type != 'track', 'tracks-icon': item.type == 'track'}">
+    		  <img src="Images/{{item.type}}-icon@2x.png" alt="{{item.type}}"/>  
+    	  </div>
+	   </div>
       <div class="desc">{{item.desc | cut:true:20:' ...'}}</div>
     </li>
     

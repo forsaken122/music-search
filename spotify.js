@@ -15,7 +15,7 @@ myApp.controller('Search', function($scope, $http) {
         	url : "https://api.spotify.com/v1/search",
         	params: {
         		q: $scope.searchinput,
-        		type: "album,artist",
+        		type: "album,artist,track",
                 offset: $scope.offset,
                 limit: 20
         	}}).then(function(response) {
@@ -49,6 +49,19 @@ myApp.controller('Search', function($scope, $http) {
                         });
                     }
                 }
+
+                if (response.data.tracks && response.data.tracks.items){
+                    for (i = 0; i < response.data.tracks.items.length; i++) { 
+                        var track = response.data.tracks.items[i];
+                        $scope.searchdata.push({
+                            imageurl: (track.album.images[0] && track.album.images[0].url )?track.album.images[0].url:"", 
+                            desc: track.name,
+                            type: track.type
+                        });
+                    }
+                }
+
+                $scope.searchdata.sort(function(a, b){a.desc.localeCompare(b.desc);});
     }
     
 });
