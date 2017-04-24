@@ -50,7 +50,7 @@
     <li class="col-3" ng-repeat="item in searchdata">
 			<div class="image">
       <img src="{{item.imageurl}}" alt="{{item.desc}}"/>
-	  <div class="icon">
+	  <div ng-show="item.imageurl" class="icon">
 		<img src="Images/{{item.type}}-icon@2x.png" alt="{{item.type}}"/>  
 	  </div>
 	  </div>
