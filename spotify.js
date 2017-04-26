@@ -8,6 +8,16 @@ myApp.controller('Search', function($scope, $http) {
       if ($scope.searchinput) {$scope.fetch(); $scope.searchdata =[];}
     });
 
+    $scope.isOpenModal = false;
+    $scope.selectedItem = null;
+
+    $scope.openModal = function (item){
+        $scope.isOpenModal = !$scope.isOpenModal;
+        
+        if ($scope.isOpenModal && item) $scope.selectedItem = item;
+        console.log($scope.selectedItem);
+    }
+
 	$scope.fetch = function () {
         console.log($scope.offset);
     	$http({
@@ -15,7 +25,7 @@ myApp.controller('Search', function($scope, $http) {
         	url : "https://api.spotify.com/v1/search",
         	params: {
         		q: $scope.searchinput,
-        		type: "album,artist,track",
+        		type: "album,artist",
                 offset: $scope.offset,
                 limit: 20
         	}}).then(function(response) {
@@ -50,7 +60,7 @@ myApp.controller('Search', function($scope, $http) {
                     }
                 }
 
-                if (response.data.tracks && response.data.tracks.items){
+                /*if (response.data.tracks && response.data.tracks.items){
                     for (i = 0; i < response.data.tracks.items.length; i++) { 
                         var track = response.data.tracks.items[i];
                         $scope.searchdata.push({
@@ -59,7 +69,7 @@ myApp.controller('Search', function($scope, $http) {
                             type: track.type
                         });
                     }
-                }
+                }*/
 
                 $scope.searchdata.sort(function(a, b){a.desc.localeCompare(b.desc);});
     }

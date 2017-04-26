@@ -47,17 +47,30 @@
   
   <ul class="list-row-padding">
     
-    <li ng-show="item.imageurl" class="col-3" ng-repeat="item in searchdata">
+    <li ng-click="openModal(item)" ng-show="item.imageurl" class="col-3" ng-repeat="item in searchdata">
 			<div class="image">
-        <img ng-class="{'blur': item.type == 'track'}" src="{{item.imageurl}}" alt="{{item.desc}}"/>
-    	  <div ng-class="{'icon': item.type != 'track', 'tracks-icon': item.type == 'track'}">
-    		  <img src="Images/{{item.type}}-icon@2x.png" alt="{{item.type}}"/>  
+        <img ng-init="hover = false" ng-mouseenter="hover = true" ng-mouseout="hover = false" ng-class="{'blur': hover}" src="{{item.imageurl}}" alt="{{item.desc}}"/>
+    	  <div  ng-mouseenter="hover = true" ng-mouseout="hover = false" ng-class="{'icon': hover == false, 'tracks-icon': hover == true}">
+    		  <img src="Images/{{(hover == false)?item.type:'track'}}-icon@2x.png" alt="{{item.type}}"/>  
+          {{hover?'View ' + item.type:''}}
     	  </div>
 	   </div>
       <div class="desc">{{item.desc | cut:true:20:' ...'}}</div>
     </li>
     
   </ul>
+
+  <!-- The Modal -->
+<div ng-show="isOpenModal" id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span ng-click="openModal()" class="close">&times;</span>
+    <img src="{{selectedItem.imageurl}}"/>
+
+  </div>
+
+</div>
 
   <div ng-show="!searchdata.length" class="center-col3 center-text">
       <img src="Images/Magnify@2x.png"></img>
