@@ -12,10 +12,26 @@ myApp.controller('Search', function($scope, $http) {
     $scope.selectedItem = null;
 
     $scope.openModal = function (item){
-        $scope.isOpenModal = !$scope.isOpenModal;
         
-        if ($scope.isOpenModal && item) $scope.selectedItem = item;
-        console.log($scope.selectedItem);
+        if (item){
+            $http({
+                method : "GET",
+                url : "https://api.spotify.com/v1/"+((item.type=='artist')?"artists/"+item.id+"/albums":
+                    "albums/"+item.id+"/tracks")
+                /*params: {
+                    
+                    offset: $scope.offset,
+                    limit: 20
+                    }*/
+                }).then(function(response) {
+                    $scope.isOpenModal = !$scope.isOpenModal;
+                    if ($scope.isOpenModal && item) $scope.selectedItem = item;
+
+                    console.log(response);
+                    
+                });
+        } else {$scope.isOpenModal = !$scope.isOpenModal;}
+        
     }
 
 	$scope.fetch = function () {
@@ -44,7 +60,8 @@ myApp.controller('Search', function($scope, $http) {
                         $scope.searchdata.push({
                             imageurl: (artist.images[0] && artist.images[0].url )?artist.images[0].url:"", 
                             desc: artist.name,
-							type: artist.type
+							type: artist.type,
+                            id: artist.id
                         });
                     }
                 }
@@ -55,7 +72,8 @@ myApp.controller('Search', function($scope, $http) {
                         $scope.searchdata.push({
                             imageurl: (album.images[0] && album.images[0].url )?album.images[0].url:"", 
                             desc: album.name,
-							type: album.type
+							type: album.type,
+                            id: album.id
                         });
                     }
                 }
