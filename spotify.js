@@ -27,6 +27,8 @@ myApp.controller('Search', function($scope, $http) {
                     $scope.isOpenModal = !$scope.isOpenModal;
                     if ($scope.isOpenModal && item) $scope.selectedItem = item;
 
+                    
+                    $scope.selectedItem.list = response.data.items;
                     console.log(response);
                     
                 });
@@ -45,7 +47,7 @@ myApp.controller('Search', function($scope, $http) {
                 offset: $scope.offset,
                 limit: 20
         	}}).then(function(response) {
-   
+                console.log(response);
                 dataParse(response);
                 
         	});

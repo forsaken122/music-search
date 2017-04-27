@@ -36,7 +36,7 @@
 
 <div ng-app="Spotify" ng-controller="Search">
 <div id="center-color" class="row">
-  <div class="center-col3">
+  <div class="center-col6">
     <input type="text" ng-model="searchinput" 
          ng-model-options="{ debounce: 800 }" name="searchfield" placeholder="Search for artist or album title" class="rounded" /> 
     <!--<input type="submit" value="Search" />-->
@@ -50,8 +50,8 @@
     <li ng-click="openModal(item)" ng-show="item.imageurl" class="col-3" ng-repeat="item in searchdata">
 			<div class="image">
         <img ng-init="hover = false" ng-mouseenter="hover = true" ng-mouseout="hover = false" ng-class="{'blur': hover}" src="{{item.imageurl}}" alt="{{item.desc}}"/>
-    	  <div  ng-mouseenter="hover = true" ng-mouseout="hover = false" ng-class="{'icon': hover == false, 'tracks-icon': hover == true}">
-    		  <img src="Images/{{(hover == false)?item.type:'track'}}-icon@2x.png" alt="{{item.type}}"/>  
+    	  <div  ng-mouseenter="hover = true" ng-mouseout="hover = false" ng-class="{'icon': !hover, 'tracks-icon': hover}">
+    		  <img src="Images/{{(!hover)?item.type:'track'}}-icon@2x.png" alt="{{item.type}}"/>  
           {{hover?'View ' + item.type:''}}
     	  </div>
 	   </div>
@@ -65,9 +65,22 @@
 
   <!-- Modal content -->
   <div class="modal-content">
-    <span ng-click="openModal()" class="close">&times;</span>
-    <img src="{{selectedItem.imageurl}}"/>
-    {{selectedItem.desc}}
+    
+    <div class="modal-header">
+      <img class="modal-header-close" ng-click="openModal()" src="Images/Cross@2x.png" alt="X" />
+      <img class="modal-image" src="{{selectedItem.imageurl}}"/>
+      <div class="modal-header-text">{{selectedItem.desc}}</div>
+
+    </div>
+    <hr/>
+      <div class="modal-list">
+        <ul>
+          <li ng-repeat="elem in selectedItem.list">
+            {{elem.name}}
+          </li>
+        </ul>
+      </div>
+    
   </div>
 
 </div>

@@ -138,10 +138,12 @@ input.rounded {
 @media only screen and (max-width: 768px) {
   .list-row-padding > [class*="col-"] {
     width: 100%; 
-  } 
+  }
+  
 }
 	
 @media only screen {
+  
   /* For desktop: */
   .col-1 {
     width: 8.33%; }
@@ -187,8 +189,8 @@ input.rounded {
     width: 16.66%;
     margin: 0px auto; }
 
-  .center-col3 {
-    width: 25%;
+  .center-col6 {
+    width: 50%;
     margin: 0px auto; } }
 .footer {
   text-align: center;
@@ -263,10 +265,10 @@ input.rounded {
     margin: 15% auto; /* 15% from the top and centered */
     /*padding: 2em;*/
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 60%; /* Could be more or less, depending on screen size */
 }
 
-/* The Close Button */
+/* The Close Button 
 .close {
     color: #aaa;
     float: right;
@@ -278,5 +280,35 @@ input.rounded {
 .close:focus {
     color: black;
     text-decoration: none;
+    cursor: pointer;
+}*/
+
+.modal-header{
+  max-height: 350px;
+  overflow: hidden;
+  position:relative;
+}
+.modal-header .modal-image{ width:100%;}
+
+.modal-header-text{ 
+  
+  font-size: 3em; 
+  color: white;
+  width: 100%;
+    height: auto;
+    position:absolute;
+    bottom: .4em;
+    left: .2em;
+    padding: .2em;
+    overflow:hidden;
+}
+.modal-header-close{ 
+  width: 10%;
+    height: auto;
+    position:absolute;
+    top: .4em;
+    right: .2em;
+    padding: .2em;
+    overflow:hidden;
     cursor: pointer;
 }
