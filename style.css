@@ -312,3 +312,6 @@ input.rounded {
     overflow:hidden;
     cursor: pointer;
 }
+.modal-list{
+  padding: 2em;
+}

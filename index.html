@@ -72,10 +72,13 @@
       <div class="modal-header-text">{{selectedItem.desc}}</div>
 
     </div>
+    <br/>
     <hr/>
+    <br/>
       <div class="modal-list">
         <ul>
           <li ng-repeat="elem in selectedItem.list">
+            <img ng-show="elem.type=='album'" class="thumb" src="{{elem.images[2].url}}"/>
             {{elem.name}}
           </li>
         </ul>
