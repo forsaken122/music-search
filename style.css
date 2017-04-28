@@ -236,7 +236,7 @@ input.rounded {
     width: 100%; }
 
 .modal-header-text {
-  font-size: 3em;
+  font-size: 3vw;
   color: white;
   width: 100%;
   height: auto;
