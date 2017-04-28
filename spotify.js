@@ -11,6 +11,8 @@ myApp.controller('Search', function($scope, $http) {
     $scope.isOpenModal = false;
     $scope.selectedItem = null;
 
+    $scope.otherItemToLoad = false;
+
     $scope.openModal = function (item){
         
         if (item){
@@ -65,7 +67,7 @@ myApp.controller('Search', function($scope, $http) {
                 offset: $scope.offset,
                 limit: 20
         	}}).then(function(response) {
-                
+                console.log(response.data)
                 dataParse(response);
 
         	});
@@ -97,6 +99,8 @@ myApp.controller('Search', function($scope, $http) {
                         });
                     }
                 }
+
+                $scope.otherItemToLoad = response.data.albums.next!=null || response.data.artists.next!=null;
 
                 $scope.searchdata.sort(function(a, b){a.desc.localeCompare(b.desc);});
     }
