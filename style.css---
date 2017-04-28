@@ -8,60 +8,73 @@ body {
   font-family: Raleway Webfont;
   margin: auto;
   width: 90%;
-  color: white;
-  font-size: 1em; }
+  color: white; 
+  font-size: 1em; 
+}
 
 ul {
-  list-style-type: none; }
-  ul.list-row-padding li:nth-child(4n+1) {
-    clear: both; }
+  list-style-type: none; 
+}
+
+ul.list-row-padding li:nth-child(4n+1) {
+  clear: both; 
+}  
 
 .image {
-  position: relative;
-  cursor: pointer; }
+  position:relative;cursor:pointer;
+}
 
 .icon {
-  width: 30%;
+	width: 30%;
   height: auto;
-  position: absolute;
-  bottom: 0.2em;
-  left: 0.2em;
-  padding: 0.2em;
-  overflow: hidden; }
+  position:absolute;
+  bottom: .2em;
+  left: .2em;
+  padding: .2em;
+  overflow:hidden;
+ }
 
 .tracks-icon {
   width: 90%;
   height: 90%;
-  position: absolute;
-  bottom: 0.2em;
-  left: 0.2em;
-  padding: 0.2em;
-  overflow: hidden;
+  position:absolute;
+  bottom: .2em;
+  left: .2em;
+  padding: .2em;
+  overflow:hidden;
   text-align: center;
-  text-size: 0.4em; }
+  text-size: .4em;
+ }
 
-.blur {
-  filter: blur(0.5em);
-  -webkit-filter: blur(0.5em); }
-
+.blur{
+  filter: blur(.5em);
+  -webkit-filter: blur(.5em);
+}
+  
 .row {
-  padding: 0.8em; }
-  .row::after {
-    content: "";
-    clear: both;
-    padding: 0.8em;
-    display: table; }
+  padding: 0.8em; 
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  padding: 0.8em;
+  display: table; 
+}
 
 img {
   width: 100%;
-  height: auto; }
+  height: auto; 
+}
 
 [class*="col-"] {
   float: left;
-  padding: 1em; }
+  padding: 1em; 
+}
 
 .center-text {
-  text-align: center; }
+  text-align: center; 
+}
 
 #gradient {
   background: #b1475e;
@@ -76,14 +89,17 @@ img {
   /* Standard syntax */ }
 
 #bottom-color {
-  background: #383a49; }
+  background: #383a49; 
+}
 
 #center-color {
-  background: #333441; }
+  background: #333441; 
+}
 
 #color-text-search {
   color: #474957;
-  font-size: 1.2em; }
+  font-size: 1.2em; 
+}
 
 input.rounded {
   width: 100%;
@@ -92,7 +108,8 @@ input.rounded {
   background-color: #f8f8f8;
   font-size: 1em;
   resize: none;
-  padding: 0.8em; }
+  padding: 0.8em; 
+}
 
 #searchbutton {
   background: #223445;
@@ -103,7 +120,8 @@ input.rounded {
   display: inline-block;
   width: 20em;
   height: 5em;
-  -webkit-font-smoothing: antialiased; }
+  -webkit-font-smoothing: antialiased; 
+}
 
 .el-list {
   border: 0.1em solid #223445;
@@ -112,13 +130,15 @@ input.rounded {
   display: inline-block;
   width: 20em;
   height: 5em;
-  -webkit-font-smoothing: antialiased; }
+  -webkit-font-smoothing: antialiased;
+}
 
 .desc {
   background: #FFFFFF;
   color: #383a49;
   padding: 0.8em;
-  font-size: 1em; }
+  font-size: 1em;
+}
 
 #show-more-btn {
   width: 100%;
@@ -129,70 +149,96 @@ input.rounded {
   display: inline-block;
   padding: 1em 1.2em;
   color: #ffffff;
-  font-size: 100%; }
-  #show-more-btn:active {
-    position: relative;
-    top: 1px; }
+  font-size: 100%; 
+}
+
+#show-more-btn:active {
+  position: relative;
+  top: 1px; 
+}
 
 @media only screen and (max-width: 768px) {
   .list-row-padding > [class*="col-"] {
-    width: 100%; } }
+    width: 100%; 
+  }  
+}
+	
 @media only screen {
+  
   /* For desktop: */
   .col-1 {
-    width: 8.33%; }
+    width: 8.33%; 
+  }
 
   .col-2 {
-    width: 16.66%; }
+    width: 16.66%; 
+  }
 
   .col-3 {
-    width: 25%; }
+    width: 25%; 
+  }
 
   .col-4 {
-    width: 33.33%; }
+    width: 33.33%; 
+  }
 
   .col-5 {
-    width: 41.66%; }
+    width: 41.66%; 
+  }
 
   .col-6 {
-    width: 50%; }
+    width: 50%; 
+  }
 
   .col-7 {
-    width: 58.33%; }
+    width: 58.33%; 
+  }
 
   .col-8 {
-    width: 66.66%; }
+    width: 66.66%; 
+  }
 
   .col-9 {
-    width: 75%; }
+    width: 75%; 
+  }
 
   .col-10 {
-    width: 83.33%; }
+    width: 83.33%; 
+  }
 
   .col-11 {
-    width: 91.66%; }
+    width: 91.66%; 
+  }
 
   .col-12 {
-    width: 100%; }
+    width: 100%; 
+  }
 
   .center-col1 {
     width: 8.33%;
-    margin: 0px auto; }
+    margin: 0px auto; 
+  }
 
   .center-col2 {
     width: 16.66%;
-    margin: 0px auto; }
+    margin: 0px auto; 
+  }
 
   .center-col3 {
     width: 25%;
-    margin: 0px auto; }
+    margin: 0px auto; 
+  }
 
   .center-col6 {
     width: 50%;
-    margin: 0px auto; } }
+    margin: 0px auto; 
+  } 
+}
+
 .footer {
   text-align: center;
-  padding: 1em; }
+  padding: 1em; 
+}
 
 @font-face {
   font-family: "Raleway Webfont";
@@ -238,93 +284,94 @@ input.rounded {
   font-family: "Raleway Webfont";
   src: url("./Fonts/raleway/Raleway-Heavy.ttf");
   font-weight: 900;
-  font-style: normal; }
+  font-style: normal; 
+}
+
 /* The Modal (background) */
 .modal {
-  display: block;
-  /* Hidden by default */
-  position: fixed;
-  /* Stay in place */
-  z-index: 1;
-  /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%;
-  /* Full width */
-  height: 100%;
-  /* Full height */
-  overflow: auto;
-  /* Enable scroll if needed */
-  background-color: black;
-  /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4);
-  /* Black w/ opacity */
-  color: black; }
+    display: block; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    color: black; 
+}
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  /* 15% from the top and centered */
-  border: 1px solid #888;
-  width: 60%;
-  /* Could be more or less, depending on screen size */ }
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    border: 1px solid #888;
+    width: 60%; /* Could be more or less, depending on screen size */
+}
 
-.modal-header {
+.modal-header{
   max-height: 350px;
   overflow: hidden;
-  position: relative; }
-  .modal-header .modal-image {
-    width: 100%; }
+  position:relative;
+}
+.modal-header .modal-image{ 
+  width:100%;
+}
 
-.modal-header-text {
-  font-size: 3em;
+.modal-header-text{   
+  font-size: 3em; 
   color: white;
   width: 100%;
   height: auto;
-  position: absolute;
-  bottom: 0.4em;
-  left: 0.2em;
-  padding: 0.2em;
-  overflow: hidden; }
-
-.modal-header-close {
+  position:absolute;
+  bottom: .4em;
+  left: .2em;
+  padding: .2em;
+  overflow:hidden;
+}
+.modal-header-close{ 
   width: 10%;
   height: auto;
-  position: absolute;
-  top: 0.4em;
-  right: 0.2em;
-  padding: 0.2em;
-  overflow: hidden;
-  cursor: pointer; }
+  position:absolute;
+  top: .4em;
+  right: .2em;
+  padding: .2em;
+  overflow:hidden;
+  cursor: pointer;
+}
+.modal-list{
+  padding: 2em;
+}
 
-.modal-list {
-  padding: 2em; }
-
-#title-modal {
+#title-modal{
   margin-left: 40px;
   font-size: 1.5em;
-  margin-top: 10px; }
+  margin-top: 10px;
+}
 
 hr.hr-modal {
   margin-left: 40px;
   margin-right: 40px;
-  height: 1px;
-  border: none;
-  color: #D3D3D3;
-  background-color: #D3D3D3; }
+  height:1px;
+  border:none; 
+  color:#D3D3D3; 
+  background-color:#D3D3D3; 
+}
 
 li.modal-list-li {
   padding: 10px;
   overflow: auto;
-  font-size: 2em; }
-  li.modal-list-li .modal-ele-info {
-    color: #D3D3D3;
-    font-size: 0.8em; }
-  li.modal-list-li img {
-    float: left;
-    width: 100px;
-    height: 100px;
-    margin: 0 15px 0 0; }
+  font-size: 2em;
+}
+li.modal-list-li .modal-ele-info {
+  color: #D3D3D3;
+  font-size: .8em;
+}
 
-/*# sourceMappingURL=style.css.map */
+li.modal-list-li img {
+  float: left;
+  width: 100px;
+  height: 100px;
+  margin: 0 15px 0 0;
+}
