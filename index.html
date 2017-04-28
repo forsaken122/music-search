@@ -73,13 +73,18 @@
 
     </div>
     <br/>
-    <hr/>
+    <h1 id="title-modal">{{(selectedItem.type == "artist")?"Album":"Track"}}s</h1>
+    <hr class="hr-modal"/>
     <br/>
       <div class="modal-list">
         <ul>
-          <li ng-repeat="elem in selectedItem.list">
-            <img ng-show="elem.type=='album'" class="thumb" src="{{elem.images[2].url}}"/>
-            {{elem.name}}
+          <li class="modal-list-li" ng-repeat="elem in selectedItem.list">
+            <img ng-show="selectedItem.type=='artist'" class="thumb" src="{{elem.images[2].url}}"/>
+            <span ng-show="elem.type=='track'">{{$index+1}})&nbsp;</span>{{elem.name}}
+            <br/> 
+            <p ng-show="elem.type=='track'" class="modal-ele-info">{{elem.duration_ms | FromMstoMinSec}}</p>
+            <p ng-show="elem.type=='album'" class="modal-ele-info">{{elem.release_date | limitTo : 4}}</p>
+            
           </li>
         </ul>
       </div>

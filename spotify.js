@@ -18,26 +18,44 @@ myApp.controller('Search', function($scope, $http) {
                 method : "GET",
                 url : "https://api.spotify.com/v1/"+((item.type=='artist')?"artists/"+item.id+"/albums":
                     "albums/"+item.id+"/tracks")
-                /*params: {
-                    
-                    offset: $scope.offset,
-                    limit: 20
-                    }*/
                 }).then(function(response) {
+
                     $scope.isOpenModal = !$scope.isOpenModal;
+
                     if ($scope.isOpenModal && item) $scope.selectedItem = item;
 
-                    
-                    $scope.selectedItem.list = response.data.items;
-                    console.log(response);
-                    
+                    tracksList = response.data.items;
+
+                    if (item.type=="artist" && response.data.items){
+                        albumList = response.data.items;
+                        for ( i = albumList.length - 1; i >= 0; i--) {
+                            
+                            (function(i){
+                                $http({
+                                    method : "GET", 
+                                    url : "https://api.spotify.com/v1/albums/"+albumList[i].id
+                                }).then(function(responseAlbum) {
+                                    
+                                    if (responseAlbum && responseAlbum.data){
+                                        if (responseAlbum.data.release_date){
+                                           albumList[i].release_date = responseAlbum.data.release_date; 
+                                        }
+                                    }
+                                });
+                            })(i);
+
+                        };
+                    }
+
+                    $scope.selectedItem.list = (item.type=="artist")?albumList:tracksList;
+
                 });
         } else {$scope.isOpenModal = !$scope.isOpenModal;}
         
     }
 
 	$scope.fetch = function () {
-        console.log($scope.offset);
+        
     	$http({
     		method : "GET",
         	url : "https://api.spotify.com/v1/search",
@@ -47,15 +65,15 @@ myApp.controller('Search', function($scope, $http) {
                 offset: $scope.offset,
                 limit: 20
         	}}).then(function(response) {
-                console.log(response);
-                dataParse(response);
                 
+                dataParse(response);
+
         	});
         
     }
 
     function dataParse(response){
-        console.log(response.data);
+        
                 if (response.data.artists && response.data.artists.items){
                     for (i = 0; i < response.data.artists.items.length; i++) { 
                         var artist = response.data.artists.items[i];
@@ -80,23 +98,30 @@ myApp.controller('Search', function($scope, $http) {
                     }
                 }
 
-                /*if (response.data.tracks && response.data.tracks.items){
-                    for (i = 0; i < response.data.tracks.items.length; i++) { 
-                        var track = response.data.tracks.items[i];
-                        $scope.searchdata.push({
-                            imageurl: (track.album.images[0] && track.album.images[0].url )?track.album.images[0].url:"", 
-                            desc: track.name,
-                            type: track.type
-                        });
-                    }
-                }*/
-
                 $scope.searchdata.sort(function(a, b){a.desc.localeCompare(b.desc);});
     }
     
 });
 
+/* My custom filters */
 
+myApp.filter('FromMstoMinSec', function(){
+  return function(input){
+    input = input/1000;
+    var minutes = parseInt(input/60, 10);
+    var seconds = parseInt(input%60);
+
+    if (minutes.toString().length == 1) {
+            minutes = "0" + minutes;
+    }
+
+    if (seconds.toString().length == 1) {
+            seconds = "0" + seconds;
+    }
+
+    return minutes+':'+seconds;
+  }
+})
 
 myApp.filter('cut', function () {
         return function (value, wordwise, max, tail) {
